@@ -1,2 +1,1 @@
-# Hello world!
-## React is awesome!
+# Hello World!
