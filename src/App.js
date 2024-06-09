@@ -14,8 +14,13 @@ export const App = () => {
         );
     };
 
+    const addNewPerson = ({id, name, age, phone}) => {
+
+        persons.push({id: id, name: name, age: age, phone: phone});
+    };
+
     return <>
-        <UserForm></UserForm>
+        <UserForm addNewPerson={addNewPerson}/>
         { persons.map((person) => <CardItem {...person} key={person.id} onDeletePerson={onDeletePerson} />) }
     </>
 };
