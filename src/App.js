@@ -3,8 +3,6 @@ import { Showtime } from "./Showtime";
 
 export const App = () => {
 
-
-
     return (
       <div>
         <div>useEffect</div>
