@@ -1,7 +1,14 @@
-import React from "react";
-
-
+import React, { useState } from "react";
+import { Showtime } from "./Showtime";
 
 export const App = () => {
-    return <div>hello world!</div>
+
+
+
+    return (
+      <div>
+        <div>useEffect</div>
+        <Showtime />
+      </div>
+    );
 }
