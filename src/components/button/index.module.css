@@ -1,0 +1,56 @@
+.button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border: 1px solid lightgray;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    min-width: 100px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    color: #2d2d2d;
+}
+
+.s {
+    font-size: 12px;
+    padding: 5px 2px;
+}
+
+.m {
+    font-size: 16px;
+    padding: 10px 5px;
+}
+
+.xl {
+    font-size: 24px;
+    padding: 15px 8px;
+}
+
+.primary {
+    background-color: rgb(156, 235, 156);
+    color: #fff;
+    border-color: greenyellow;
+}
+
+.primary:hover {
+    background-color: rgb(0, 255, 0);
+}
+
+.secondary {
+    background-color: gray;
+}
+
+.secondary:hover {
+    background-color: rgb(78, 77, 77);
+    color: #fff;
+}
+
+.secondaryAlt {
+    background-color: #fff;
+    border-color: #000;
+}
+
+.secondaryAlt:hover {
+    background-color: #777777;
+    color: #fff;
+}
