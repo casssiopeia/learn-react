@@ -2,15 +2,19 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
-import { toggleTodo } from "../../store/async-action";
+import { toggleTodo, deleteTodo } from "../../store/async-action";
 
 export const Todo = ({ title, completed, id, createdAt }) => {
   const date = new Date(createdAt);
   const dispatch = useDispatch();
 
   const onToggle = () => {
-    dispatch(toggleTodo(id));
+    dispatch(toggleTodo(id, completed));
   };
+
+  const onDelete = () => {
+    dispatch(deleteTodo(id));
+  }
 
   return (
     <Card>
@@ -22,6 +26,7 @@ export const Todo = ({ title, completed, id, createdAt }) => {
         <Button onClick={onToggle} variant={completed ? "success" : "danger"}>
           complete
         </Button>
+        <Button onClick={onDelete} variant="primary">delete</Button>
       </Card.Body>
     </Card>
   );

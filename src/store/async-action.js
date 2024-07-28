@@ -41,16 +41,32 @@ export const postTodo = createAsyncThunk(
 
 export const toggleTodo = createAsyncThunk(
   "toggleTodo",
-  async (todoId, thunkApi) => {
-    const raw = await fetch(`${ENDPOINT}/todos/${todoId}`, {
+  async (id, completed, thunkApi) => {
+    const raw = await fetch(`${ENDPOINT}/todos/${id}`, {
       method: "PATCH",
-      body: JSON.stringify({ todoId }),
+      body: JSON.stringify({ id, completed }),
       headers: {
         "Content-type": "application/json",
       },
     });
-    const response = await raw.json();
+    const updatedTodo = await raw.json();
 
-    return thunkApi.fulfillWithValue(response);
+    return thunkApi.fulfillWithValue(updatedTodo);
   }
 );
+
+export const deleteTodo = createAsyncThunk(
+  "deleteTodo",
+  async (id, thunkApi) => {
+    const raw = await fetch(`${ENDPOINT}/todos/${id}`, {
+      method: "DELETE",
+    });
+
+    if (raw.status === 202) {
+      const response = await raw.json();
+
+      return thunkApi.fulfillWithValue(response);
+    }
+
+    return thunkApi.rejectWithValue({error: 'smth went wrong'});
+});
